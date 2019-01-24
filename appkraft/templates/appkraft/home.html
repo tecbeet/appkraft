@@ -1,70 +1,126 @@
 {% extends 'appkraft/base.html' %}
-
 {% block content %}
+{% load static %}
 
-    <div class="header">
-        <div class="container">
-            <h1>Caixa</h1>
+    <!-- Modal FINALIZAR-->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Finalizar Venda</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="radio">
+                        <label><input type="radio" name="optradio" checked>Dinheiro</label>
+                    </div>   
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Card Crédito</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Card Débito</label>
+                    </div> 
+                    <input id="myInput" type="text" placeholder="ID User..."> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-toggle="modal" data-target="">Finalizar</button>  
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="container">
-        <label for="perfil">Perfil</label>
-        <br>
-        <select id="perfil">
-            <option value="">----</option>
-            <option value="volvo">Local</option>
-            <option value="saab">Anhanguera</option>
-        </select>
-        <br>
-        <label for="lista">Lista</label>
-        <br>
-        <select id="lista">            
-            <option value="">----</option>
-            <option value="volvo">Saad</option>
-            <option value="saab">Anhanguera</option>
-        </select>
-
-        <input id="myInput" type="text" placeholder="Search Produto..">
-    </div>
-
-    <div class="container">
-        <button>Orçamento</button>
-        <button>Finalizar</button>
-    </div>
-
-    <div class="container">
-        <label for="total">Total</label>
-        <br>
-        <textarea name="total" id="total" cols="1" rows="1" width="100"></textarea>
-    </div>
-
-    <div class="container">
-        <div class="radio">
-            <label><input type="radio" name="optradio" checked>Dinheiro</label>
+    <!-- Modal Salvar-->
+    <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title text-center">Cadastro de Orçamento</h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <input id="myInput" type="text" placeholder="CPF">
+                        <input id="myInput" type="text" placeholder="NOME">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-toggle="modal" data-target="">Salvar</button>  
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="radio">
-            <label><input type="radio" name="optradio">Card Crédito</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio">Card Débito</label>
-        </div>
+
+    <div class="container">
+        <div class="row">   
+            <div class="col-xs-4 text-center">    
+                <div class="row">
+                    <div class="col-xs-12 text-center">  
+                        <input style = "width: 60px;" id="myInput" type="text" placeholder="Venda">             
+                        &nbsp&nbsp
+                        <select id="perfil">
+                            <option value="">Perfil</option>
+                            <option value="volvo">Local</option>
+                            <option value="saab">Anhanguera</option>
+                        </select>
+                        &nbsp
+                        <select id="lista">            
+                            <option value="">Lista</option>
+                            <option value="volvo">Saad</option>
+                            <option value="volvo">Anhanguera</option>
+                        </select>
+                    </div>
+                </div>
+                <br>   
+                <img class="img-responsive img-rounded" src="{% static "img/logo/logo03.png" %}">                
+            </div>
+            <div class="col-xs-8 text-left">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label style="font-size:20px" class="label label-success">R$</label>
+                        <label style="font-size:20px" class="label label-default">1.000,00</label> 
+                        <input id="myInput" type="text" placeholder="Search Produto...">
+                        <input style="width: 50px;" id="myInput" type="text" placeholder="Qtd...">                     
+                        <button  type="button" data-toggle="modal" data-target="#myModal">Finalizar</button>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <select id="orcamento">
+                            <option value="">Orçamento</option>
+                            <option value="volvo">31211423808</option>
+                        </select>
+                        <button  type="button" data-toggle="modal" data-target="#myModal2">Salvar</button>
+                        
+                    </div>        
+                </div>
+                <br>
+                <div class="row">
+                    <div class="table-overflow col-xs-12">                  
+                        <table>
+                        <thead><!--cabeçalho-->
+                            <tr>
+                                <th class="t3">Código</th>
+                                <th>nome</th>
+                                <th class="t1">Qtde</th>
+                                <th class="t2">Valor</th>
+                                <th class="t2">Total</th>
+                            </tr>
+                            <tr>
+                                <td >453563</td>
+                                <td>Cubo</td>
+                                <td >2</td>
+                                <td >R$ 35,00</td>
+                                <td >R$ 70,00</td>
+                            </tr>
+                        </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>     
     </div>
 
-    <div class="container"> 
-            <!-- <input class="form-control" id="myInput" type="text" placeholder="Search Produto.."> -->
-            <br>
-            <table class="table table-bordered table-striped">
-              <thead><!--cabeçalho-->
-                <tr>
-                  <th>Código</th>
-                  <th>nome</th>
-                  <th>Qtde</th>
-                  <th>Valor</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
+
+
+    
+        
 
               <tbody id="myTable"><!--corpo_tabela-->
                
@@ -76,7 +132,7 @@
                     <td>50,00</td><!--coluna-->
                     <td>50,00</td><!--coluna-->
                 </tr>
-                    
+                                    
                 <!-- {% endfor %} -->
                
               </tbody>
