@@ -96,3 +96,36 @@ margin: 0 5px 0 5px;
 margin-right: 10px;
 z-index: 1000;
 }
+  
+  .zoom-card ul {
+    -webkit-padding-start: 0;
+    list-style: none;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {background-color: #f0f0f0;}
+
+  tr, th {
+    text-align: center;
+    border-spacing: 5px;
+  }
+
+  .table-overflow {
+    max-height:400px;
+    overflow-y:auto;
+    overflow-x:auto;
+  }
+
+  table {
+    width: 100%;
+    max-right: 30px;
+  }
+  .t1 {
+    width: 7%;
+  }
+  .t2 {
+    width: 14%;
+  }
+  .t3 {
+    width: 20%;
+  }
